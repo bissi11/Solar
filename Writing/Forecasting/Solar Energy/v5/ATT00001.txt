@@ -1,0 +1,57 @@
+
+
+> On 9 Apr 2018, at 20:30, David Pozo Camara <D.Pozo@skoltech.ru> wrote:
+> 
+> I am sending you my comments in a couple of hours.
+> 
+>> On 8 Apr 2018, at 21:27, Singh, Bismark (-EXP) <bsingh@sandia.gov> wrote:
+>> 
+>> Please have a very careful look at the attached, and edit as you feel like. Especially #8 and #10. We should send the revision out this week. 
+>> Thanks,
+>> Bismark
+>> 
+>> ________________________________________
+>> From: Singh, Bismark (-EXP)
+>> Sent: Saturday, April 7, 2018 2:22 PM
+>> To: David Pozo Camara
+>> Subject: Fw: [EXTERNAL] Editor query SE SE-D-18-00831
+>> 
+>> Dear David,
+>> 
+>> I'd likely need your help for some of these points. But the turnaround time is remarkable :)
+>> -Bismark
+>> ________________________________________
+>> From: eesserver@eesmail.elsevier.com <eesserver@eesmail.elsevier.com> on behalf of Jan Kleissl <eesserver@eesmail.elsevier.com>
+>> Sent: Saturday, April 7, 2018 12:34 AM
+>> To: Singh, Bismark (-EXP)
+>> Subject: [EXTERNAL] Editor query SE SE-D-18-00831
+>> 
+>> Journal title: Solar Energy
+>> Corresponding author: Dr. Bismark Singh
+>> Article title: Hourly solar power forecasting using ARMA models
+>> Manuscript number: SE-D-18-00831
+>> 
+>> Dear Dear Bismark,
+>> The paper topic is of interest to the journal, but I would like to request that you make a few revisions before I send it out for review.   My priority as Section Editor for Solar Resources and Energy Meteorology is to improve the probability and speed of publication for every manuscript while reducing the workload on the reviewers.
+>> 
+>> Please send the revised manuscript to me via email at jkleissl@ucsd.edu at your earliest convenience and I will upload it for you. I understand that the Elsevier Editor System is cumbersome and I would like to make your experience as smooth as possible. Please let me know when I can expect the revised paper.
+>> 1.      At the end of the introduction state the novelty of the paper. ARMA methods have been applied frequently in solar forecast papers, so it must be clarified how this paper goes beyond that.
+>> 2.      L15: I would not call two pages of text 'in depth'.
+>> 3.      L19: Briefly introduce the power plant, especially tilt, azimuth, location.
+>> 4.      L21: It is more common in solar resources to apply a criterion based on the solar zenith angle.
+>> 5.      Figure 1: 1000 MW seems like a large output for a single plant. Do you have the correct units?
+>> 6.      L45: Units?
+>> 7.      L52-56: Motivate this analysis.
+>> 8.      Section 2.3: It is a standard in Solar Energy to compare forecast performance to smart persistence forecasts, which assume constant clear sky index kt = GHI / GHI_clear sky. Forecast accuracy depends on weather conditions and forecast temporal and spatial resolution. Therefor forecast accuracies are not comparable site-by-site or hour-by-hour unless normalized by a benchmark. The forecast skill = 1 - RMSE_yourforecast / RMSE_smartpersistence is a way to normalize forecast accuracy. See Coimbra, C., J. Kleissl, and R. Marquez. "Overview of solar forecasting methods and a metric for accuracy evaluation." Solar Resource Assessment and Forecasting, edited by: Kleissl, J., Elsevier, Waltham, Massachusetts (2013).
+>> 9.      L57: The conclusions section should be numbered.
+>> 10.     In the conclusions further discuss your results against the literature. What is the utility of the different tests? What have others missed by not applying these tests? Is your methodology applicable to any type of solar forecast? Etc.
+>> 
+>> With kind regards,
+>> jan
+>> 
+>> Jan Kleissl, PhD.
+>> Subject Editor
+>> 
+>> <editor comments.txt><v4.pdf><v4.rar>
+> 
+

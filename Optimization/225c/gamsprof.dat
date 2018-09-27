@@ -1,0 +1,11 @@
+3766      0.031
+1211 10      0.109       0.049 Solve Fini schedule (308025)
+1211 3      0.032       0.049 GAMS Fini   
+1198 9      0.110       0.042 Solve Fini schedule (308025)
+1159 1      0.031       0.041 Equation   Const_chance_1 (24000)
+1154 6      0.031       0.025 Equation   Const1 (23000)
+1152 8      0.063       0.013 Equation   Objective (1)
+1154 7      0.032       0.032 Equation   Const1 (23000)
+1152 2      0.062       0.022 Equation   Objective (1)
+1236 5      0.110       0.049 Solve Fini schedule_LR (308025)
+1106 4      0.265       0.005 Loop       

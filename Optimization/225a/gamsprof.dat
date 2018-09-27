@@ -1,0 +1,11 @@
+1929      0.016
+644 8      0.047       0.016 Equation   Const2 (12000)
+642 2      0.078       0.014 Equation   Const1 (11500)
+610 9      0.016       0.004 Assignment dummy (1)
+606 1      0.016       0.004 Loop       
+610 10      0.016       0.004 Assignment dummy (1)
+663 6      0.031       0.023 Solve Fini SCHEDULE (154025)
+640 7      0.031       0.008 Equation   Objective (1)
+605 3      0.078       0.004 Loop       
+647 4      0.063       0.022 Equation   Const_chance_1 (12000)
+645 5      0.047       0.018 Equation   Const3 (12000)

@@ -1,0 +1,123 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plain Cover Letter
+% LaTeX Template
+% Version 1.0 (28/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Rensselaer Polytechnic Institute 
+% http://www.rpi.edu/dept/arc/training/latex/resumes/
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt]{article} % Default font size of the document, change to 10pt to fit more text
+
+\usepackage{newcent} % Default font is the New Century Schoolbook PostScript font 
+%\usepackage{helvet} % Uncomment this (while commenting the above line) to use the Helvetica font
+\usepackage{hyperref}
+\usepackage[square,sort,comma,numbers]{natbib}
+\bibliographystyle{plain}
+\setlength{\parskip}{\baselineskip}%
+\setlength\parindent{0pt}
+\usepackage{titlesec}
+
+
+%\usepackage{letterbib}
+
+% Margins
+\topmargin=-1in % Moves the top of the document 1 inch above the default
+\textheight=10.5in % Total height of the text on the page before text goes on 
+%to the next page, this can be increased in a longer letter
+\oddsidemargin=-10pt % Position of the left margin, can be negative or positive if you want more or less room
+\textwidth=6.5in % Total width of the text, increase this if the left margin was decreased and vice-versa
+
+\let\raggedleft\raggedright % Pushes the date (at the top) to the left, comment this line to have the date on the right
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{letter} 
+
+%----------------------------------------------------------------------------------------
+%	YOUR NAME & ADDRESS SECTION
+%----------------------------------------------------------------------------------------
+
+
+%\signature{Bismark Singh} % Your name for the signature at the bottom
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT SECTION
+%----------------------------------------------------------------------------------------
+
+\today
+\par
+Dear Editor,
+\par
+We are submitting the manuscript, ``Hourly solar power forecasting using ARMA 
+models'' for publication as a Brief Notes article  in \textit{Solar Energy}.
+\par
+Various economical, social, and political factors support the increasing share 
+of solar energy to complement energy generated using conventional fossil fuels 
+in our electric power systems. This requires knowledge of fast and efficient 
+methods to forecast solar power. 
+\par
+We provide a succinct step-by-step methodology methodology to build hourly 
+solar power forecasts using historical data with an ARMA model. We provide 
+conditions under which ARMA models are suitable; describe how to use 
+various statistical tests and their suitability; and, provide metrics 
+to estimate the fit. Finally, we use the model to develop future 
+forecasts.
+
+We believe the manuscript will be useful for academicians and practitioners who 
+are interested in forecasting, as it provides directly implementable 
+instructions to generate solar power scenarios. 
+\par
+Our manuscript is not under consideration for publication at any other journal. We look forward to hearing from you.
+\par
+
+\noindent
+Sincerely,
+\newline
+Bismark Singh, Surya Santoso
+\newline
+\textit{The University of Texas at Austin.}
+\newline
+\noindent
+David Morton
+\newline
+\textit{Northwestern University.}
+
+\par
+
+
+For correspondence, use:
+\newline
+Bismark Singh
+\newline
+204 E. Dean Keeton St., 
+\newline
+Austin, Texas 78712-0292, U.S.A.\
+\newline
+\href{mailto:bismark.singh@utexas.edu}{bismark.singh@utexas.edu}
+%----------------------------------------------------------------------------------------
+\vspace{-0.3in}
+%\end{letter}
+
+\begingroup
+\titleformat*{\section}{\bf}
+\bibliographystyle{IEEEtran}
+\bibliography{thebib2}
+\endgroup
+\end{document}

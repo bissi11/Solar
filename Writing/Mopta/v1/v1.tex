@@ -1,0 +1,220 @@
+%%%%%%%%%%%%%%%%%%%%%%% file template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a general template file for the LaTeX package SVJour3
+% for Springer journals.          Springer Heidelberg 2010/09/16
+%
+% Copy it to a new file with a new name and use it as the basis
+% for your article. Delete % signs as needed.
+%
+% This template includes a few options for different layouts and
+% content for various journals. Please consult a previous issue of
+% your journal as needed.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% First comes an example EPS file -- just ignore it and
+% proceed on the \documentclass line
+% your LaTeX will extract the file if required
+\begin{filecontents*}{example.eps}
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 19 19 221 221
+%%CreationDate: Mon Sep 29 1997
+%%Creator: programmed by hand (JK)
+%%EndComments
+gsave
+newpath
+  20 20 moveto
+  20 220 lineto
+  220 220 lineto
+  220 20 lineto
+closepath
+2 setlinewidth
+gsave
+  .4 setgray fill
+grestore
+stroke
+grestore
+\end{filecontents*}
+%
+\RequirePackage{fix-cm}
+%
+%\documentclass{svjour3}                     % onecolumn (standard format)
+%\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
+\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+%\documentclass[twocolumn]{svjour3}          % twocolumn
+%
+\smartqed  % flush right qed marks, e.g. at end of proof
+%
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{fullpage}
+\usepackage{array}
+\allowdisplaybreaks
+\usepackage{arydshln}
+\usepackage[hyphens]{url}
+
+\newcommand{\st}{\mbox{s.t.}}
+\newcommand{\uS}{{\underline{S}}}
+\newcommand{\oS}{{\overline{S}}}
+\newcommand{\oQ}{{\overline{Q}}}
+\newcommand{\oP}{{\overline{P}}}
+\newcommand{\oX}{{\overline{X}}}
+\newcommand{\uX}{{\underline{X}}}
+\renewcommand{\P}{{\mathbb P}}
+\newcommand{\E}{{\mathbb E}}
+%
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+%\usepackage{latexsym}
+% etc.
+%
+% please place your own definitions here and don't use \def but
+% \newcommand{}{}
+%
+% Insert the name of "your journal" with
+% \journalname{myjournal}
+%
+\begin{document}
+
+\title{Insert your title here%\thanks{Grants or other notes
+%about the article that should go on the front page should be
+%placed here. General acknowledgments should be placed at the end of the article.}
+}
+\subtitle{Do you have a subtitle?\\ If so, write it here}
+
+%\titlerunning{Short form of title}        % if too long for running head
+
+\author{Bismark Singh        \and
+       David Pozo
+}
+
+%\authorrunning{Short form of author list} % if too long for running head
+
+\institute{B. Singh \at
+              Discrete Math \& Optimization \\
+              Sandia National Laboratories \\
+              Albuquerque, NM 87123 USA \\ 
+              \and
+           D. Pozo \at
+           }
+
+\date{Received: date / Accepted: date}
+% The correct dates will be entered by the editor
+
+
+\maketitle
+
+\begin{abstract}
+Insert your abstract here. Include keywords, PACS and mathematical
+subject classification numbers as needed.
+\keywords{First keyword \and Second keyword \and More}
+% \PACS{PACS code1 \and PACS code2 \and more}
+% \subclass{MSC code1 \and MSC code2 \and more}
+\end{abstract}
+
+\section{Mathematical Modeling} \label{sec:model}
+
+
+\subsection{Notation} \label{sec: notation}
+\begin{tabbing}
+\hspace{0.7in} \= \\
+{\em Indices and Sets:} \\
+$t \in T$ \> set of hours\\
+$w \in \Omega$ \> set of scenarios \\ \\
+{\em Parameters: First Stage} \> \\
+$\eta$ \> efficiency of battery $ 0< \eta <1 $   \\
+$\oX$ \>  maximum energy that can be stored in the battery [MWh] \\ 
+$\uX$ \>  minimum energy that must remain in the battery [MWh] \\ 
+
+$\mu_t$ \> revenue earned for delivering a unit of energy at hour $t$ [\$/MWh] \\
+$\lambda_c$ \> operational cost of charging the battery [\$/MWh] \\
+$\lambda_d$ \> operational cost of charging the battery  [\$/MWh] \\ 
+
+$\lambda_t^q$ \> selling price of energy at hour $t$ [\$/MWh]\\ 
+$\oP$ \> maximum charging rate of  battery [MWh] \\
+$\oQ$ \> maximum discharging rate  of battery  [MWh] \\ \\
+{\em Parameters: Second Stage} \> \\
+$s_t^\omega$ \> solar energy available at hour $t$ under scenario $\omega$ [MWh]   \\ \\
+
+{\em Decision Variables: First Stage} \> \\
+$y_t$ \> energy promised to deliver at hour $t$ [MWh]  \\
+
+{\em Decision Variables: Second Stage} \> \\
+
+$p_t^\omega$ \> energy charged to battery at hour $t$ in scenario $\omega$ [MWh]  \\
+$q_t^\omega$ \> energy discharged from battery at hour $t$ in scenario $\omega$ [MWh]  \\
+$x_t^\omega$ \> energy stored in battery at hour $t$ in scenario $\omega$ [MWh]  \\
+$w_t^\omega$ \> binary variable; 1 if battery is charging at hour $t$ and 0 if discharging
+\end{tabbing}
+
+	
+% 	We consider a problem where a solar photovoltaic power station (SPP) commits (e.g., on power auctions) to deliver $p_t$ MWh of energy at the hour $t$. Solar production is considered uncertain and represented with the random parameter $\tilde{s}_t$. The solar production is zero during some hours a day.
+% 	Within the SPP, there is a bulk storage, e.g., pump hydro generator or Li-ion batteries, with a given storage capacity $ \overline{X}$. The bulk storage is used to meet the uncertainty of the solar generation in order to meet the contract commitments. Also, it can be used for selling/purchase energy in the pool-based market at price $\lambda_t^q$/$\lambda_t^p$ ($\lambda_t^p \ge \lambda_t^q$). The purchased/sold energy, $p_t$/$q_t$, from/to the pool-based market has to be decided a day-ahead of the energy delivery. Observe, that energy purchased $p_t$ from the pool-based market would make  possible to meet the contract for days with very little solar generation. 
+	
+
+\begin{subequations} \label{eqn: model}
+\begin{align}
+\max \,\, &  \sum_{t \in T} \mu_t y_t- \E [ \lambda_c p_t^\omega + \lambda_d q_t^\omega ] & \label{eqn: obj} \\
+ \st \,\, &   \P \left( y_t \le s_t^\omega + q_t^\omega -  p_t^\omega,  \forall t\in T \right)  \ge \alpha & \label{eqn: chance} \\
+% & x_{t+1}^\omega = x_t^\omega +  z_t^\omega, & \forall t = 2, 3, \ldots T-1, \forall \omega \in \Omega     \label{eqn: balance}\\
+& x_{t+1}^\omega = x_t^\omega +  \eta p_t^\omega - \frac{1}{\eta} q_t^\omega, & \forall t = 2, 3, \ldots T-1, \forall \omega \in \Omega     \label{eqn: balance}\\
+% & z_t^\omega =  \eta p_t^\omega - \frac{1}{\eta} q_t^\omega, & \forall t \in T, \forall \omega \in \Omega     \label{eqn: charging}\\
+& p_t^\omega \le \oP w_t^\omega, & \forall t \in T, \forall \omega \in \Omega  \label{eqn: maxcharging}\\
+& q_t^\omega \le \oQ (1 - w_t^\omega), & \forall t \in T, \forall \omega \in \Omega  \label{eqn: maxdischarging}\\
+& \uX \le x_t^\omega \le \oX, & \forall t \in T, \forall \omega \in \Omega  \label{eqn: maxcapacity}\\
+& w_t^\omega \in \{ 0,1 \} & \forall t \in T, \forall \omega \in \Omega \label{eqn: binary} \\
+& p_t^\omega, q_t^\omega  \ge 0. \label{eqn: positive} 
+\end{align}
+\end{subequations}
+
+The objective function in~\eqref{eqn: obj} aims to maximize profit; i.e., revenue from the promise minus the cost of operating (charging or discharging) the battery. A more sophisticated model could include piecewise linear or quadratic costs; see, e.g.,~\cite{carrion2006,wu2011tighter}. The joint chance constraint in equation~\eqref{eqn: chance} requires that the
+joint probability of meeting the promised energy to sell, by the available solar power (via $s^\omega$) and discharging the battery, (via $q^\omega$),  for the entire time horizon meets a threshold; excess solar energy can be used to charge the battery (via $p^\omega$). If the solar power is excess than needed, we might need to curtail it. However, we do not penalize this curtailment and hence equation~\eqref{eqn: chance} is expressed as a inequality.  Here, $\alpha$ is a positive quantity just less than one, such as 0.95. Constraint~\eqref{eqn: balance} relates the energy stored by the battery in a subsequent hour with the previous hour; here, the quantity $\eta p_t^\omega - \frac{1}{\eta} q_t^\omega$ is the energy charged or discharged by the battery at hour $t$. Note that both $p_t^\omega$ or $q_t^\omega$ cannot simultaneously be positive, this is ensured by constraints~\eqref{eqn: maxcharging}-\eqref{eqn: maxdischarging}. Further, since $\eta <1$, a fraction of energy is lost while both charging and discharging; i.e., we consume more than 100\% while charging and supply less than a 100\% while discharging. Further, constraint~\eqref{eqn: maxcapacity} ensures the minimum and maximum amount of energy stored in the battery , and thus equations~\eqref{eqn: maxcharging}-\eqref{eqn: maxcapacity} restrict the amount the battery can be charged or discharged.  The remaining constraints ensure the binary and non-negative restrictions on the relevant decision variables. 
+
+The probabilistic constraint in equation~\eqref{eqn: chance} can be reformulated using a big-$M$ approach as follows:
+\begin{subequations} \label{eqn:BigM}
+\begin{eqnarray} 
+\label{eqn:BigM_1} &  y_t - q_t^\omega +  p_t^\omega \le s_t^\omega + M_t^\omega z^\omega , & \forall t \in T, \omega \in \Omega \;\; \;\;  \\
+\label{eqn:BigM_2} & \sum_{\omega \in \Omega} z^\omega \le \lfloor 
+N \varepsilon \rfloor \\
+& \label{eqn:BigM_3} z^\omega \in \{0,1\}, & \forall  \omega \in \Omega.
+\end{eqnarray}
+\end{subequations}
+Here, $\lfloor \cdot \rfloor$ rounds its argument down to the nearest integer.
+\begin{proposition} 
+
+ From equation~\eqref{eqn: balance} and equation~\eqref{eqn: maxcapacity} we have  $ q_t^\omega - p_t^\omega \le  x_t^\omega - x_{t+1}^\omega \le \oX - \uX,  \forall t = 2, 3, \ldots T-1, \forall \omega \in \Omega$. Then, we can use the result from Proposition 1 of~\cite{singh}, and a sufficiently large value of $M_t^\omega$ is given by $\oX - \uX + s_t^{\omega(\lfloor N \varepsilon \rfloor + 1,t)} - s_t^\omega$. Here, $s_t^{\omega(l,t)}$ denotes the $l^\text{th}$ largest solar power value at time $t$.
+\end{proposition}
+
+
+\section{Data Sources} \label{sec:data}
+
+For the computational experiments in this article, we use $\eta = 0.9$. We use $\oX=960 \text{kWh}$ from the lead-acid battery described in~\cite{zhao2013operation}. To compute the cost of charging or discharging the battery, we again use the formula given by~\cite{zhao2013operation}: $ \lambda_c= \lambda_d = \frac{\alpha}{390 \oX} I$, where $\alpha$ is an effective weighting factor, $I$ is the initial investment cost to purchase the battery, and $390 \oX$ is an approximation for the total throughput of the battery~\cite{jenkins2008lifetime}. We assume $\alpha =1$, and use a lead-acid battery cost of $\$ 200/\text{kWh}$ from~\cite{nameplate}. An approximately similiar  battery cost is available from~\cite{nameplate2}. Further, we assume $\uX= 0.2 \oX, \oP=\oQ= 0.5 \oX$, and the battery is 50\% charged initially (i.e., $x_1^\omega = 0.5 \oX$). 
+
+
+\begin{acknowledgements}
+Sandia National Laboratories is a multimission laboratory managed and operated 
+by National Technology and Engineering Solutions of Sandia, LLC., a wholly owned
+subsidiary of Honeywell International, Inc., for the U.S. Department of 
+Energy's 
+National Nuclear Security Administration under contract DE-NA-0003525. This paper describes objective technical results and analysis. Any subjective 
+views or opinions that might be expressed in the paper do not necessarily 
+represent the views of the U.S. Department of Energy or the United States 
+Government.
+\end{acknowledgements}
+
+% BibTeX users please use one of
+%\bibliographystyle{spbasic}      % basic style, author-year citations
+%\bibliographystyle{spmpsci}      % mathematics and physical sciences
+\bibliographystyle{spphys}       % APS-like style for physics
+\bibliography{thebib2}   % name your BibTeX data base
+
+
+
+\end{document}
+% end of file template.tex
+

@@ -1,0 +1,20 @@
+B 2 C o m p i l a t i o n
+B 1681 Include File Summary
+B 1699 E x e c u t i o n
+B 3624 Model Analysis      SOLVE SCHEDULE Using MIP From line 663
+B 3630 Equation Listing    SOLVE SCHEDULE Using MIP From line 663
+D 3631 Objective
+D 15655 Const1
+D 55663 Const2
+D 75671 Const3
+D 95679 Const_chance_1
+D 135057 Const_chance_2
+B 135259 Column Listing      SOLVE SCHEDULE Using MIP From line 663
+E 135260 P
+E 135285 Q
+E 135306 X
+E 135327 Y
+E 136843 OBJ
+E 136850 W
+E 136869 Z
+B 136959 Model Statistics    SOLVE SCHEDULE Using MIP From line 663

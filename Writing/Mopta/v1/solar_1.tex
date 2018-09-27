@@ -1,0 +1,221 @@
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%% Author template for Operations Reseacrh (opre) for articles with no e-companion (EC)
+	%% Mirko Janc, Ph.D., INFORMS, mirko.janc@informs.org
+	%% ver. 0.95, December 2010
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\documentclass[opre,blindrev]{informs3}
+	\documentclass[opre,nonblindrev]{informs3} % current default for manuscript submission
+	
+	\OneAndAHalfSpacedXI % current default line spacing
+	%%\OneAndAHalfSpacedXII
+	%%\DoubleSpacedXII
+	%%\DoubleSpacedXI
+	
+	% If hyperref is used, dvi-to-ps driver of choice must be declared as
+	%   an additional option to the \documentclass. For example
+	%\documentclass[dvips,opre]{informs3}      % if dvips is used
+	%\documentclass[dvipsone,opre]{informs3}   % if dvipsone is used, etc.
+	
+	%%% OPRE uses endnotes. If you do not use them, put a percent sign before
+	%%% the \theendnotes command. This template does show how to use them.
+	%\usepackage{endnotes}
+	\let\footnote=\endnote
+	\let\enotesize=\normalsize
+	\def\notesname{Endnotes}%
+	\def\makeenmark{$^{\theenmark}$}
+	\def\enoteformat{\rightskip0pt\leftskip0pt\parindent=1.75em
+	  \leavevmode\llap{\theenmark.\enskip}}
+	% Private macros here (check that there is no clash with the style)
+	\allowdisplaybreaks 
+	\usepackage{graphicx}
+	\usepackage{epstopdf}
+	%\usepackage{subcaption}
+	\usepackage{subfig}
+	\usepackage{floatrow}
+	%\floatsetup[subfigure]{capposition=top}
+	\usepackage{multirow}
+	\usepackage{amsmath}
+	\usepackage{mathtools} 
+	\usepackage{booktabs}
+	
+	\newcommand{\st}{\mbox{s.t.}}
+	\newcommand{\E}{\mathbb{E}}
+	\newcommand{\PP}{\mathbb{P}}
+	
+	
+	% Natbib setup for author-year style
+	\usepackage{natbib}
+	\bibpunct[, ]{(}{)}{,}{a}{}{,}%
+	\def\bibfont{\small}%
+	\def\bibsep{\smallskipamount}%
+	\def\bibhang{24pt}%
+	\def\newblock{\ }%
+	\def\BIBand{and}%
+	
+	\usepackage{url}
+	% For nomenclature	
+	\usepackage{nomencl}
+	\makeglossary
+	
+	%% Setup of theorem styles. Outcomment only one.
+	%% Preferred default is the first option.
+	\TheoremsNumberedThrough     % Preferred (Theorem 1, Lemma 1, Theorem 2)
+	%\TheoremsNumberedByChapter  % (Theorem 1.1, Lema 1.1, Theorem 1.2)
+	\ECRepeatTheorems
+	
+	%% Setup of the equation numbering system. Outcomment only one.
+	%% Preferred default is the first option.
+	%\equationsNumberedThrough    % Default: (1), (2), ...
+	%\equationsNumberedBySection % (1.1), (1.2), ...
+	
+	% In the reviewing and copyediting stage enter the manuscript number.
+	%\MANUSCRIPTNO{} % When the article is logged in and DOI assigned to it,
+			%   this manuscript number is no longer necessary
+	
+	%%%%%%%%%%%%%%%%
+	\begin{document}
+	%%%%%%%%%%%%%%%%
+	
+	% Outcomment only when entries are known. Otherwise leave as is and
+	%   default values will be used.
+	%\setcounter{page}{1}
+	%\VOLUME{00}%
+	%\NO{0}%
+	%\MONTH{Xxxxx}% (month or a similar seasonal id)
+	%\YEAR{0000}% e.g., 2005
+	%\FIRSTPAGE{000}%
+	%\LASTPAGE{000}%
+	%\SHORTYEAR{00}% shortened year (two-digit)
+	%\ISSUE{0000} %
+	%\LONGFIRSTPAGE{0001} %
+	%\DOI{10.1287/xxxx.0000.0000}%
+	
+	% Author's names for the running heads
+	% Sample depending on the number of authors;
+	% \RUNAUTHOR{Jones}
+	% \RUNAUTHOR{Jones and Wilson}
+	% \RUNAUTHOR{Jones, Miller, and Wilson}
+	% \RUNAUTHOR{Jones et al.} % for four or more authors
+	% Enter authors following the given pattern:
+	\RUNAUTHOR{Singh et al.}
+	
+	% Title or shortened title suitable for running heads. Sample:
+	% \RUNTITLE{Bundling Information Goods of Decreasing Value}
+	% Enter the (shortened) title:
+	\RUNTITLE{An optimal coordination of  solar photo-voltaic farm with bulk storage}
+	
+	% Full title. Sample:
+	% \TITLE{Bundling Information Goods of Decreasing Value}
+	% Enter the full title:
+	\TITLE{A Proportionally Fair Criteria for Allocating Multiple Resources}
+	
+	% Block of authors and their affiliations starts here:
+	% NOTE: Authors with same affiliation, if the order of authors allows,
+	%   should be entered in ONE field, separated by a comma.
+	%   \EMAIL field can be repeated if more than one author
+	\ARTICLEAUTHORS{%
+	\AUTHOR{Bismark Singh}
+	\AFF{Discrete Math \& Optimization, Sandia National Laboratories, Albuquerque, NM 87185 \\
+	\EMAIL{bsingh@sandia.gov}}
+	 
+	\AUTHOR{David Pozo}
+	\AFF{Skoltech Center for Energy Systems, Skolkovo Institute of Science and Technology, Moscow, Russia \\ \EMAIL{d.pozo@skoltech.ru}} %, \URL{}}
+	
+
+	} % end of the block
+	
+	\ABSTRACT{%
+	}%
+	
+	% Sample
+	%\KEYWORDS{deterministic inventory theory; infinite linear programming duality;
+	%  existence of optimal policies; semi-Markov decision process; cyclic schedule}
+	
+	% Fill in data. If unknown, outcomment the field
+	\KEYWORDS{proportional fairness; equity; optimization; resource allocation; healthcare} \HISTORY{%This paper was first submitted on April 12, 1922 and has been with the authors for 83 years for 65 revisions.
+	}
+	\maketitle
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Samples of sectioning (and labeling) in OPRE
+	% NOTE: (1) \section and \subsection do NOT end with a period
+	%       (2) \subsubsection and lower need end punctuation
+	%       (3) capitalization is as shown (title style).
+	%
+	%\section{Introduction.}\label{intro} %%1.
+	%\subsection{Duality and the Classical EOQ Problem.}\label{class-EOQ} %% 1.1.
+	%\subsection{Outline.}\label{outline1} %% 1.2.
+	%\subsubsection{Cyclic Schedules for the General Deterministic SMDP.}
+	%  \label{cyclic-schedules} %% 1.2.1
+	%\section{Problem Description.}\label{problemdescription} %% 2.
+	
+	% Text of your paper here
+	\section{Notation}
+
+			\begin{tabular}{l l}
+				
+				\bf {Sets and Indices} & \\
+				$t \in T$ 		 & set of hours\\
+				$w \in \Omega$ 		& set of scenarios \\
+
+				\bf {Data and Parameters} & \\
+				$\eta_c$ 		& battery's charging efficiency, $ 0 < \eta_c < 1 $   \\
+				$\eta_d$ 		& battery's discharging efficiency, $ 0 < \eta_d < 1$   \\
+				$s_t^\omega$ & solar energy available at hour $t$ under scenario $\omega$ [MWh]   \\ 
+				$\underline{X}, \overline{X}$ 		& upper and lower bounds on battery's capacity [MWh]  \\
+				$\underline{Y}, \overline{Y}$ 		& upper and lower bounds on battery's charging per hour  [MWh]  \\
+				$\underline{Z}, \overline{Z}$ 		& upper and lower bounds on batter's discharging per hour [MWh]  \\\\
+				
+				\bf {Decision Variables} & \\
+				$r_t$ 		     		   & energy promised to deliver at hour $t$ [MWh]  \\
+				$x_t^\omega$ 		 & energy stored in battery at hour $t$ under scenario $\omega$ [MWh]  \\
+				$y_t^\omega$ 		 & energy charged to battery at hour $t$ under scenario $\omega$ [MWh]  \\
+				$z_t^\omega$ 		 & energy discharged to battery at hour $t$ under scenario $\omega$ [MWh]  \\
+			\end{tabular}
+		\label{tab:notation}
+	
+	\section{Introduction}
+	
+	We consider a problem where a solar photovoltaic power station (SPP) commits (e.g., on power auctions) delivering $r_t$ MWh of energy at the hour $t$. Solar production is considered uncertain and represented with the random parameter $\tilde{s}_t$. The solar production is zero during some hours a day.
+	Within the SPP, there is a bulk storage, e.g., pump hydro generator or Li-ion batteries, with a given storage capacity $ \overline{X}$. The bulk storage is used to meet the uncertainty of the solar generation in order to meet the contract commitments. Also, it can be used for selling/purchase energy in the pool-based market at price $\lambda_t^q$/$\lambda_t^p$ ($\lambda_t^p \ge \lambda_t^q$). The purchased/sold energy, $p_t$/$q_t$, from/to the pool-based market has to be decided a day-ahead of the energy delivery. Observe, that energy purchased $p_t$ from the pool-based market would make  possible to met the contract for days with very little solar generation. 
+	
+	The objective consist of maximizing profits from selling the committed $r_t$ MWh and the bulk storage considering the joint coordination of the SPP and bulk storage.  We do not consider ({\color{red} for now.  We may can include it in the future, it shouldn't change the solution methodology}) penalization on not meeting the committed energy. 
+	
+    State-of-charge (SoC) of the storage has be withing it safety limits.
+	
+
+	
+	The following optimization model summarizes the above described problem. 
+
+	{
+	\begin{subequations} \label{eqn: solar_1}
+	\begin{eqnarray}
+		\min_{x,y,z,p,q} & \sum_{t \in t} (\lambda^p_t p_t -  \lambda_t^q q_t)     & \label{eqn: solar_obj} \\
+		\mbox{s.t.} &    \PP \left\{ r_t  \geq s_t^{\omega} + z_t^\omega -  y_t^\omega,  \forall t\in T  \right\} \ge 1-\alpha & \label{eqn. commit} \\
+		& x_{t+1}^\omega = x_t^\omega +  \eta_c (y_t^\omega + p_t) - \frac{1}{\eta_d} (z_t^\omega + q_t),  & \forall t \le |T|-1        \label{eqn: solar_2}\\
+		& 	 \underline{X} \le x_t^\omega \le \overline{X}, & \forall t \in T 	\label{eqn: solar_3}\\
+		& 	 (y_{t+1}^\omega + p_{t+1}) - (y_{t}^\omega + p_{t})  \le R^{up},  &  \forall t \le |T|-1   \label{eqn: solar_4}\\
+		& 	 (z_{t}^\omega + q_{t}) - (z_{t+1}^\omega + q_{t+1})  \le R^{dw},  &  \forall t \le |T|-1   \label{eqn: solar_5} \\
+		 & y_{t}^\omega, z_{t}^\omega , p_t, q_t  \ge 0 & \label{eqn: solar_6} 
+	\end{eqnarray}
+	\end{subequations}
+	}
+
+The objective function aims to minimize purchased energy in the day-ahead market and maximize the energy sold to it. Equation \eqref{eqn. commit} enforce that energy delivered by the contract has to come from the solar production or storage. Equation \eqref{eqn: solar_2} represents the SoC of the storage. Note that $y_t^\omega$ represents the energy sent to the storage from the SPP excess production while $p_t$ is the energy sent to the storage that had been bought to the pool-based market. Equation \eqref{eqn: solar_3} represents the technical limits of the storage.  Equations \eqref{eqn: solar_5} and \eqref{eqn: solar_6} represents maximum charging and discharging rate of the storage device. 
+
+
+
+
+
+	%   (while the paper is being written).
+	\bibliographystyle{ormsv080} % outcomment this and next line in Case 1
+	\bibliography{thebib2} % if more than one, comma separated
+	
+	% CASE 2: BiBTeX used to generate mypaper.bbl (to be further fine tuned)
+	%\input{mypaper.bbl} % outcomment this line in Case 2
+	
+	%If you don't use BiBTex, you can manually itemize references as shown below.
+	
+	%%%%%%%%%%%%%%%%%
+	\end{document}
+	%%%%%%%%%%%%%%%%%

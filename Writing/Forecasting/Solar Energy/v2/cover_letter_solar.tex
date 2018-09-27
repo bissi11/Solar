@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plain Cover Letter
+% LaTeX Template
+% Version 1.0 (28/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Rensselaer Polytechnic Institute 
+% http://www.rpi.edu/dept/arc/training/latex/resumes/
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt]{article} % Default font size of the document, change to 10pt to fit more text
+
+\usepackage{newcent} % Default font is the New Century Schoolbook PostScript font 
+%\usepackage{helvet} % Uncomment this (while commenting the above line) to use the Helvetica font
+\usepackage{hyperref}
+\usepackage[square,sort,comma,numbers]{natbib}
+\bibliographystyle{plain}
+\setlength{\parskip}{\baselineskip}%
+\setlength\parindent{0pt}
+\usepackage{titlesec}
+
+
+%\usepackage{letterbib}
+
+% Margins
+\topmargin=-1in % Moves the top of the document 1 inch above the default
+\textheight=10.5in % Total height of the text on the page before text goes on 
+%to the next page, this can be increased in a longer letter
+\oddsidemargin=-10pt % Position of the left margin, can be negative or positive if you want more or less room
+\textwidth=6.5in % Total width of the text, increase this if the left margin was decreased and vice-versa
+
+\let\raggedleft\raggedright % Pushes the date (at the top) to the left, comment this line to have the date on the right
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{letter} 
+
+%----------------------------------------------------------------------------------------
+%	YOUR NAME & ADDRESS SECTION
+%----------------------------------------------------------------------------------------
+
+
+%\signature{Bismark Singh} % Your name for the signature at the bottom
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT SECTION
+%----------------------------------------------------------------------------------------
+
+\today
+\par
+Dear Editor,
+\par
+We are submitting the manuscript, ``Hourly solar power forecasting using ARMA 
+models'' for publication as a Brief Note in \textit{Solar Energy}.
+\par
+Various economical, social, and political factors support the increasing share 
+of solar energy to complement energy generated using conventional fossil fuels 
+in our electric power systems~\cite{stoddard2006economic}. Efficient and 
+fast methods to forecast solar power are often unavailable, and a crude 
+approximation is used; see, e.g.~\cite{su2014stochastic}.
+\par
+We provide a succinct step-by-step methodology methodology to build hourly 
+solar power forecasts using historical data with an ARMA model. We provide 
+conditions under which ARMA models are suitable; describe how to use 
+various statistical tests and their suitability; and, provide metrics 
+to estimate the fit. Finally, we use the model to develop future 
+forecasts.
+
+We believe the Brief Note will be useful for academicians and practitioners who 
+are interested in solar power forecasting, as it provides directly 
+implementable instructions to generate solar power scenarios. 
+\par
+Our manuscript is not under consideration for publication at any other journal. We look forward to hearing from you.
+\par
+Suggested reviewers: (i) Surya Santoso, The University of Texas at Austin, (ii) 
+XXX, (iii)XXX
+\par
+Sincerely,
+\newline
+Bismark Singh
+\newline
+\textit{Sandia National Laboratories, Albuquerque, USA}
+\newline
+\noindent
+David Pozo
+\newline
+\textit{Skolkovo Institute of Science and Technology, Moscow, Russia }
+
+\par
+
+
+For correspondence, use:
+\newline
+Bismark Singh
+\newline
+Discrete Math \& Optimization, Sandia National Laboratories, 
+\newline
+P.O. Box 5800, MS 1326
+\newline
+Albuquerque, NM, 87185-1320, USA
+\newline
+\href{mailto:bsingh@singh.gov}{bsingh@singh.gov}
+%----------------------------------------------------------------------------------------
+\vspace{-0.2in}
+%\end{letter}
+
+\begingroup
+\titleformat*{\section}{\bf}
+{\small
+\bibliographystyle{IEEEtran}
+\bibliography{mybibfile}
+}
+\endgroup
+\end{document}

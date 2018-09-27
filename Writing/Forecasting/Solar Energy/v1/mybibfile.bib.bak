@@ -1,0 +1,154 @@
+% Encoding: UTF-8
+@article{Dirac1953888,
+  title   = "The lorentz transformation and absolute time",
+  journal = "Physica ",
+  volume  = "19",
+  number  = "1-–12",
+  pages   = "888--896",
+  year    = "1953",
+  doi     = "10.1016/S0031-8914(53)80099-6",
+  author  = "P.A.M. Dirac"
+}
+
+@article{Feynman1963118,
+  title   = "The theory of a general quantum system interacting with a linear dissipative system",
+  journal = "Annals of Physics ",
+  volume  = "24",
+  pages   = "118--173",
+  year    = "1963",
+  doi     = "10.1016/0003-4916(63)90068-X",
+  author  = "R.P Feynman and F.L {Vernon Jr.}"
+}
+
+@Article{graabak2016variability,
+  author    = {Graabak, Ingeborg and Korp{\aa}s, Magnus},
+  title     = {{V}ariability characteristics of european wind and solar power resources—{A} review},
+  journal   = {{E}nergies},
+  year      = {2016},
+  volume    = {9},
+  number    = {6},
+  pages     = {449},
+  publisher = {Multidisciplinary Digital Publishing Institute},
+}
+
+@InProceedings{huang2010comparative,
+  author       = {Huang, Yuehui and Lu, Jing and Liu, Chun and Xu, Xiaoyan and Wang, Weisheng and Zhou, Xiaoxin},
+  title        = {{C}omparative study of power forecasting methods for {PV} stations},
+  booktitle    = {Power System Technology (POWERCON), 2010 International Conference on},
+  year         = {2010},
+  pages        = {1--6},
+  organization = {IEEE},
+}
+
+@Article{inman2013solar,
+  author    = {Inman, Rich H and Pedro, Hugo TC and Coimbra, Carlos FM},
+  title     = {{S}olar forecasting methods for renewable energy integration},
+  journal   = {{P}rogress in energy and combustion science},
+  year      = {2013},
+  volume    = {39},
+  number    = {6},
+  pages     = {535--576},
+  publisher = {Elsevier},
+}
+
+@Misc{box2008time,
+  author    = {Box, GEP and Jenkins, GM and Reinsel, GC and Ljung, GM},
+  title     = {{T}ime {S}eries {A}nalysis. {H}oboken},
+  year      = {2008},
+  publisher = {NJ: John Wiley \& Sons, Inc},
+}
+
+@Article{brown1984time,
+  author  = {Brown, Barbara G and Katz, Richard W and Murphy, Allan H},
+  title   = {{T}ime series models to simulate and forecast wind speed and wind power},
+  journal = {{J}ournal of climate and applied meteorology},
+  year    = {1984},
+  volume  = {23},
+  number  = {8},
+  pages   = {1184--1195},
+}
+
+@Article{duran2007short,
+  author    = {Duran, Mario J and Cros, Daniel and Riquelme, Jesus},
+  title     = {{S}hort-term wind power forecast based on {ARX} models},
+  journal   = {{J}ournal of {E}nergy {E}ngineering},
+  year      = {2007},
+  volume    = {133},
+  number    = {3},
+  pages     = {172--180},
+  publisher = {American Society of Civil Engineers},
+}
+
+@Article{mora1998multiplicative,
+  author    = {Mora-Lopez, LL and Sidrach-de-Cardona, M},
+  title     = {{M}ultiplicative {ARMA} models to generate hourly series of global irradiation},
+  journal   = {{S}olar {E}nergy},
+  year      = {1998},
+  volume    = {63},
+  number    = {5},
+  pages     = {283--291},
+  publisher = {Elsevier},
+}
+
+@Article{golestaneh2016generation,
+  author    = {Golestaneh, Faranak and Gooi, Hoay Beng and Pinson, Pierre},
+  title     = {{G}eneration and evaluation of space--time trajectories of photovoltaic power},
+  journal   = {{A}pplied energy},
+  year      = {2016},
+  volume    = {176},
+  pages     = {80--91},
+  publisher = {Elsevier},
+}
+
+@Article{ljung1978measure,
+  author    = {Ljung, Greta M and Box, George EP},
+  title     = {{O}n a measure of lack of fit in time series models},
+  journal   = {{B}iometrika},
+  year      = {1978},
+  volume    = {65},
+  number    = {2},
+  pages     = {297--303},
+  publisher = {Oxford University Press},
+}
+
+@Article{engle1982autoregressive,
+  author    = {Engle, Robert F},
+  title     = {{A}utoregressive conditional heteroscedasticity with estimates of the variance of {U}nited {K}ingdom inflation},
+  journal   = {{E}conometrica: {J}ournal of the {E}conometric {S}ociety},
+  year      = {1982},
+  pages     = {987--1007},
+  publisher = {JSTOR},
+}
+
+@Article{dickey1979distribution,
+  author    = {Dickey, David A and Fuller, Wayne A},
+  title     = {{D}istribution of the estimators for autoregressive time series with a unit root},
+  journal   = {{J}ournal of the {A}merican statistical association},
+  year      = {1979},
+  volume    = {74},
+  number    = {366a},
+  pages     = {427--431},
+  publisher = {Taylor \& Francis},
+}
+
+@InProceedings{huang2012solar,
+  author       = {Huang, Rui and Huang, Tiana and Gadh, Rajit and Li, Na},
+  title        = {{S}olar generation prediction using the {ARMA} model in a laboratory-level micro-grid},
+  booktitle    = {Smart Grid Communications (SmartGridComm), 2012 IEEE Third International Conference on},
+  year         = {2012},
+  pages        = {528--533},
+  organization = {IEEE},
+}
+
+@Article{chen2011online,
+  author    = {Chen, Changsong and Duan, Shanxu and Cai, Tao and Liu, Bangyin},
+  title     = {{O}nline 24-h solar power forecasting based on weather type classification using artificial neural network},
+  journal   = {{S}olar {E}nergy},
+  year      = {2011},
+  volume    = {85},
+  number    = {11},
+  pages     = {2856--2870},
+  publisher = {Elsevier},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

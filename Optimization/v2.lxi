@@ -1,0 +1,47 @@
+B 2 C o m p i l a t i o n
+B 3330 Include File Summary
+B 3348 E x e c u t i o n
+B 7071 Model Analysis      SOLVE schedule Using RMIP From line 1198
+B 7077 Equation Listing    SOLVE schedule Using RMIP From line 1198
+D 7078 Objective
+D 31102 Const1
+D 31130 Const2
+D 31148 Const3
+D 31166 Const_chance_1
+D 31189 Const_chance_2
+B 31591 Column Listing      SOLVE schedule Using RMIP From line 1198
+E 31592 P
+E 31617 Q
+E 31638 X
+E 31659 Y
+E 34675 OBJ
+E 34682 W
+E 34701 Z
+B 34791 Model Statistics    SOLVE schedule Using RMIP From line 1198
+B 34815 Solution Report     SOLVE schedule Using RMIP From line 1198
+B 34850 E x e c u t i o n
+I 34857 init_lambda
+B 34863 Model Analysis      SOLVE schedule Using MIP From line 1213
+B 34869 Equation Listing    SOLVE schedule Using MIP From line 1213
+D 34870 Objective
+D 58894 Const1
+D 58922 Const2
+D 58940 Const3
+D 58958 Const_chance_1
+D 58981 Const_chance_2
+B 59383 Column Listing      SOLVE schedule Using MIP From line 1213
+E 59384 P
+E 59409 Q
+E 59430 X
+E 59448 Y
+E 62464 OBJ
+E 62471 W
+E 62490 Z
+B 62582 Model Statistics    SOLVE schedule Using MIP From line 1213
+B 62605 Solution Report     SOLVE schedule Using MIP From line 1213
+B 62650 E x e c u t i o n
+I 62657 lowerbound
+I 62658 upperbound
+I 62659 prev_y
+B 62675 Model Analysis      SOLVE schedule_LR Using MIP From line 1238
+B 62696 Model Statistics    SOLVE schedule_LR Using MIP From line 1238

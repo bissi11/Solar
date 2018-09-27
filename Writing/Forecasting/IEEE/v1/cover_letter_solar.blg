@@ -1,0 +1,8 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: cover_letter_solar.aux
+The style file: plain.bst
+Illegal, another \bibstyle command---line 22 of file cover_letter_solar.aux
+ : \bibstyle
+ :          {IEEEtran}
+I'm skipping whatever remains of this command
+Database file #1: mybibfile.bib
+(There was 1 error message)

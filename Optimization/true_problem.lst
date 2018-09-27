@@ -1,0 +1,223 @@
+GAMS 25.0.3  r65947 Released Mar 21, 2018 WEX-WEI x86 64bit/MS Windows 09/27/18 10:50:20 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+      The full "true" problem.
+      Check which scenario file are you importing
+       
+      Production limits adapted via Morales  Latorre Ramos (2013)
+      x here is the production ABOVE the min g, so total production is g*r + x
+       
+   9   
+  10  OPTIONS PROFILE =3, RESLIM   = 2100, LIMROW   = 5, LP = CPLEX, MIP = gurob
+      i, RMIP=Gurobi, NLP = CONOPT, MINLP = DICOPT, MIQCP = CPLEX,
+  11           SOLPRINT = OFF, decimals = 8, optcr=0.01, optca=0.01, threads =8,
+       integer4=0;
+  12   
+  13  **************************************************************************
+      ******
+  14  * run_time_total recorder
+  15  SCALAR start_time, end_time, run_time_total;
+  16   
+  17  *-------------------------------------------------------------------------
+      ------
+  18   
+  19  ** sets defined in input file
+  20  SETS T times/t1*t24/;
+  21  SETS W scenarios /w1*w500/;
+  22   
+  23  ALIAS (T,TT);
+  24  ALIAS (W,I);
+  25  ** define generator costs and wind selling prices
+  26  TABLE COSTS(T,*)
+  28  $INCLUDE wind_costs.csv
+****                        $282
+  30  ;
+****  $463
+  31   
+  32  ** define wind realizations at all time periods
+  33  TABLE WIND(W,T)
+  34  $INCLUDE wind_scenarios_1500.txt
+****                                 $282
+  35  ;
+****  $463
+  36   
+  37   
+  38  scalar PROBABILITY;
+  39  PROBABILITY = 1/CARD(W);
+  40  ;
+  41   
+  42   
+  43  ** define tolerance threshold
+  44  SCALAR TOL;
+  45  TOL =0.05;
+  46   
+  47  * find Ntol + 1st value
+  48  parameter maxwind(t), minwind(t), dummywind(w,t) ;
+  49  maxwind(t) =smax(w,wind(w,t)) ;
+  50  dummywind(w,t) = wind(w,t) ;
+  51   
+  52  scalar it ;
+  53  it = floor(card(w)*tol) + 1;
+  54   
+  55  * index of it
+  56  set dummy(w);
+  57  * make the dum_iter go till at least the size of it
+  58  set dum_iter /dum_iter1*dum_iter100/;
+  59  loop(t,
+  60  loop(dum_iter$(ord(dum_iter)le it),
+  61  * find the smallest wind value for this t
+  62           minwind(t) = smin(w,dummywind(w,t)) ;
+  63  * index of smallest wind value
+  64           dummy(w) = yes$(dummywind(w,t) eq minwind(t)) ;
+  65  * make the smallest wind value large
+  66           dummywind(w,t)$dummy(w) =maxwind(t) ;
+  67  ); );
+  68  display minwind ;
+  69   
+  70  ** define generator ramp constraints
+  71  * this data is from Ostrowski's paper, our generator was too too large
+  72  SCALAR ramp;
+  73  ramp=50;
+  74   
+  75  ** define upper bound of generator capacity
+  76  SCALAR G, GG, start_cost;
+  77  G=130;
+  78  GG=20;
+  79   
+  80  parameter BigMM(w), BigM(w,t);
+  81  BigMM(w)= smax(t, wind(w,t));
+  82  BigM(w,t)= G - wind(w,t) + minwind(t);
+  83   
+  84   
+  85   
+  86  SCALARS UPTIME, DOWNTIME;
+  87  UPTIME =3;
+  88  DOWNTIME=3;
+  89   
+  90  **************************************************************************
+      ******
+  91  *                                begin model
+  92  **************************************************************************
+      ******
+  93  POSITIVE VARIABLES X(W,T), Y(T) ;
+  94  VARIABLES OBJ;
+  95  BINARY VARIABLE Z(W), R(W,T),U(W,T), V(W,T) ;
+  96   
+  97  EQUATIONS
+  98          Objective
+  99          Const1_1(W,T) bigm constraint
+ 100          Const1_2     sum probabilities
+ 101          Const_3_1(W,T) ramping constraint
+ 102          Const_3_2(W,T) ramping constraint
+ 103          Const_4_1(W,T) generator off constraints
+ 104          Const_4_2(W,T) generator off constraints
+ 105   
+ 106          Const_5(W,T) generator running constraints
+ 107   
+ 108          Const_6(W,T)
+ 109   
+ 110          ;
+ 111   
+ 112  Objective.. OBJ=E= SUM(T,COSTS(T, 'REW')*Y(T) - PROBABILITY*SUM(W, COSTS(T
+      , 'GEN')*( X(W,T) + GG*R(w,t) ) )  )  ;
+ 113   
+ 114  *Const1_1(W,T).. Y(T)-X(W,T)-R(W,T)*GG -Z(W)*WIND(W,T) =L= (1-Z(W))*BigMM(
+      w) ;
+ 115  Const1_1(W,T).. Y(T)-X(W,T)-R(W,T)*GG -WIND(W,T) =L= Z(W)*BigM(w,t) ;
+ 116   
+ 117  Const1_2..  SUM(W,Z(W)) =L= floor(card(w)*TOL) ;
+ 118   
+ 119  * The generator constraints
+ 120   
+ 121  *Ramp
+ 122   
+ 123  Const_3_1(W,T)$( ord(t) le (card(t)-1)).. X(W,T+1) + GG*R(w,t+1)- X(W,T) -
+       GG*R(w,t)  =L= ramp*(U(w,t+1) + R(w,t)) ;
+ 124  Const_3_2(W,T)$( ord(t) le (card(t)-1)).. X(W,T) + GG*R(w,t)- X(W,T+1) -GG
+      *R(w,t+1)=L= ramp*(V(w,t+1) + R(w,t+1)) ;
+ 125   
+ 126  *On/off
+ 127   
+ 128  Const_4_1(W,T)$(ord(t) ge uptime)..   Sum(tt$((ORD(TT) le ORD(T)) and (ORD
+      (TT) ge (ORD(T) - UPTIME +1))),U(W,TT)) =L= R(W,T) ;
+ 129  Const_4_2(W,T)$(ord(t) ge downtime )..Sum(tt$((ORD(TT) le ORD(T)) and (ORD
+      (TT) ge (ORD(T) - DOWNTIME +1))),V(W,TT)) =L= 1-R(W,T) ;
+ 130   
+ 131   
+ 132  Const_5(W,T)$(ord(t) ge 2).. U(W,T) - V(W,T) =E= R(W,T) - R(W,T-1) ;
+ 133   
+ 134  *if uptime more than 1
+ 135  Const_6(W,T)$( ord(t) le (card(t)-1))..   (G-GG)*R(W,T)- (G-ramp)*U(W,T) -
+       (G-ramp)*V(W,T+1) =G= X(W,T);
+ 136   
+ 137   
+ 138  *** bounds on any variables
+ 139  X.UP(W,T) =  G-GG;
+ 140  U.UP(W,T) = 1;
+ 141  V.UP(W,T) =1;
+ 142  Z.UP(w)=1;
+ 143   
+ 144  * initialize the on/off variables
+ 145  * assume the unit was on for last (uptime -1) periods
+ 146  r.fx(w,t)$(ord(t) eq 1) =1;
+ 147  u.fx(w,t)$(ord(t) eq 1) = 0;
+ 148  v.fx(w,t)$(ord(t) eq 1) = 0 ;
+ 149  * assume the generator was producing minimim power in last time period
+ 150  x.up(w,t)$(ord(t) eq 1)= ramp - GG;
+ 151   
+ 152   
+ 153   
+ 154  option limrow = 10000 ;
+ 155  MODEL  SCHEDULE    /ALL/ ;
+ 156  schedule.optfile =1;
+ 157   
+ 158  start_time=jnow;
+ 159  SOLVE SCHEDULE USING MIP MAXIMIZING OBJ;
+****                                         $257
+ 160  display obj.l ;
+****              $141
+ 161   
+ 162  end_time = jnow;
+ 163  run_time_total = ghour(end_time - start_time)*3600 + gminute(end_time - st
+      art_time)*60 + gsecond(end_time - start_time);
+ 164  display run_time_total, u.l, r.l, v.l,x.l, y.l ;
+****                                               $141
+ 165   
+
+**** LIST OF STRAY NAMES - CHECK DECLARATIONS FOR SPURIOUS COMMAS
+**** STRAY NAME start_cost OF TYPE PARAM
+GAMS 25.0.3  r65947 Released Mar 21, 2018 WEX-WEI x86 64bit/MS Windows 09/27/18 10:50:20 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Error Messages
+
+
+141  Symbol declared but no values have been assigned. Check for missing
+        data definition, assignment, data loading or implicit assignment
+        via a solve statement.
+        A wild shot: You may have spurious commas in the explanatory
+        text of a declaration. Check symbol reference list.
+257  Solve statement not checked because of previous errors
+282  Unable to open include file
+463  The column section in the previous table is missing
+
+**** 7 ERROR(S)   0 WARNING(S)
+
+
+COMPILATION TIME     =        0.046 SECONDS      3 MB  25.0.3 r65947 WEX-WEI
+
+
+USER: Small MUD - 5 User License                     S170509:1014AO-WIN
+      Karlsruher Institut fuer Technologie (KIT), Institut fuer DC13284
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\bisma\OneDrive\Documents\Renewable_Energy\Solar\Optimization
+           \true_problem.gms
+Output     C:\Users\bisma\OneDrive\Documents\Renewable_Energy\Solar\Optimization
+           \true_problem.lst
+
+**** USER ERROR(S) ENCOUNTERED

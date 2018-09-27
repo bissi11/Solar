@@ -1,0 +1,11 @@
+3943      0.047
+1238 3      0.093       0.049 Solve Fini schedule_LR (308025)
+1152 5      0.063       0.013 Equation   Objective (1)
+1106 9      0.297       0.005 Loop       
+1238 6      0.094       0.049 Solve Fini schedule_LR (308025)
+1213 7      0.125       0.049 Solve Fini schedule (308025)
+1238 4      0.109       0.049 Solve Fini schedule_LR (308025)
+1198 8      0.094       0.042 Solve Fini schedule (308025)
+1238 1      0.093       0.049 Solve Fini schedule_LR (308025)
+1238 10      0.125       0.049 Solve Fini schedule_LR (308025)
+1152 2      0.078       0.022 Equation   Objective (1)

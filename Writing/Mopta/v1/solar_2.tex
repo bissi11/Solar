@@ -1,0 +1,220 @@
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%% Author template for Operations Reseacrh (opre) for articles with no e-companion (EC)
+	%% Mirko Janc, Ph.D., INFORMS, mirko.janc@informs.org
+	%% ver. 0.95, December 2010
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\documentclass[opre,blindrev]{informs3}
+	\documentclass[opre,nonblindrev]{informs3} % current default for manuscript submission
+	
+	\OneAndAHalfSpacedXI % current default line spacing
+	%%\OneAndAHalfSpacedXII
+	%%\DoubleSpacedXII
+	%%\DoubleSpacedXI
+	
+	% If hyperref is used, dvi-to-ps driver of choice must be declared as
+	%   an additional option to the \documentclass. For example
+	%\documentclass[dvips,opre]{informs3}      % if dvips is used
+	%\documentclass[dvipsone,opre]{informs3}   % if dvipsone is used, etc.
+	
+	%%% OPRE uses endnotes. If you do not use them, put a percent sign before
+	%%% the \theendnotes command. This template does show how to use them.
+	%\usepackage{endnotes}
+	\let\footnote=\endnote
+	\let\enotesize=\normalsize
+	\def\notesname{Endnotes}%
+	\def\makeenmark{$^{\theenmark}$}
+	\def\enoteformat{\rightskip0pt\leftskip0pt\parindent=1.75em
+	  \leavevmode\llap{\theenmark.\enskip}}
+	% Private macros here (check that there is no clash with the style)
+	\allowdisplaybreaks 
+	\usepackage{graphicx}
+	\usepackage{epstopdf}
+	%\usepackage{subcaption}
+	\usepackage{subfig}
+	\usepackage{floatrow}
+	%\floatsetup[subfigure]{capposition=top}
+	\usepackage{multirow}
+	\usepackage{amsmath}
+	\usepackage{mathtools} 
+	\usepackage{booktabs}
+	
+	\newcommand{\st}{\mbox{s.t.}}
+	\newcommand{\E}{\mathbb{E}}
+	\newcommand{\PP}{\mathbb{P}}
+	
+	
+	% Natbib setup for author-year style
+	\usepackage{natbib}
+	\bibpunct[, ]{(}{)}{,}{a}{}{,}%
+	\def\bibfont{\small}%
+	\def\bibsep{\smallskipamount}%
+	\def\bibhang{24pt}%
+	\def\newblock{\ }%
+	\def\BIBand{and}%
+	
+	\usepackage{url}
+	% For nomenclature	
+	\usepackage{nomencl}
+	\makeglossary
+	
+	%% Setup of theorem styles. Outcomment only one.
+	%% Preferred default is the first option.
+	\TheoremsNumberedThrough     % Preferred (Theorem 1, Lemma 1, Theorem 2)
+	%\TheoremsNumberedByChapter  % (Theorem 1.1, Lema 1.1, Theorem 1.2)
+	\ECRepeatTheorems
+	
+	%% Setup of the equation numbering system. Outcomment only one.
+	%% Preferred default is the first option.
+	%\equationsNumberedThrough    % Default: (1), (2), ...
+	%\equationsNumberedBySection % (1.1), (1.2), ...
+	
+	% In the reviewing and copyediting stage enter the manuscript number.
+	%\MANUSCRIPTNO{} % When the article is logged in and DOI assigned to it,
+			%   this manuscript number is no longer necessary
+	
+	%%%%%%%%%%%%%%%%
+	\begin{document}
+	%%%%%%%%%%%%%%%%
+	
+	% Outcomment only when entries are known. Otherwise leave as is and
+	%   default values will be used.
+	%\setcounter{page}{1}
+	%\VOLUME{00}%
+	%\NO{0}%
+	%\MONTH{Xxxxx}% (month or a similar seasonal id)
+	%\YEAR{0000}% e.g., 2005
+	%\FIRSTPAGE{000}%
+	%\LASTPAGE{000}%
+	%\SHORTYEAR{00}% shortened year (two-digit)
+	%\ISSUE{0000} %
+	%\LONGFIRSTPAGE{0001} %
+	%\DOI{10.1287/xxxx.0000.0000}%
+	
+	% Author's names for the running heads
+	% Sample depending on the number of authors;
+	% \RUNAUTHOR{Jones}
+	% \RUNAUTHOR{Jones and Wilson}
+	% \RUNAUTHOR{Jones, Miller, and Wilson}
+	% \RUNAUTHOR{Jones et al.} % for four or more authors
+	% Enter authors following the given pattern:
+	\RUNAUTHOR{Singh et al.}
+	
+	% Title or shortened title suitable for running heads. Sample:
+	% \RUNTITLE{Bundling Information Goods of Decreasing Value}
+	% Enter the (shortened) title:
+	\RUNTITLE{An optimal coordination of  solar photo-voltaic farm with bulk storage}
+	
+	% Full title. Sample:
+	% \TITLE{Bundling Information Goods of Decreasing Value}
+	% Enter the full title:
+	\TITLE{An optimal coordination of  solar photo-voltaic farm with bulk storage}
+	
+	% Block of authors and their affiliations starts here:
+	% NOTE: Authors with same affiliation, if the order of authors allows,
+	%   should be entered in ONE field, separated by a comma.
+	%   \EMAIL field can be repeated if more than one author
+	\ARTICLEAUTHORS{%
+	\AUTHOR{Bismark Singh}
+	\AFF{Discrete Math \& Optimization, Sandia National Laboratories, Albuquerque, NM 87185 \\
+	\EMAIL{bsingh@sandia.gov}}
+	 
+	\AUTHOR{David Pozo}
+	\AFF{Skoltech Center for Energy Systems, Skolkovo Institute of Science and Technology, Moscow, Russia \\ \EMAIL{d.pozo@skoltech.ru}} %, \URL{}}
+	
+
+	} % end of the block
+	
+	\ABSTRACT{%
+	}%
+	
+	% Sample
+	%\KEYWORDS{deterministic inventory theory; infinite linear programming duality;
+	%  existence of optimal policies; semi-Markov decision process; cyclic schedule}
+	
+	% Fill in data. If unknown, outcomment the field
+	\KEYWORDS{} \HISTORY{%This paper was first submitted on April 12, 1922 and has been with the authors for 83 years for 65 revisions.
+	}
+	\maketitle
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Samples of sectioning (and labeling) in OPRE
+	% NOTE: (1) \section and \subsection do NOT end with a period
+	%       (2) \subsubsection and lower need end punctuation
+	%       (3) capitalization is as shown (title style).
+	%
+	%\section{Introduction.}\label{intro} %%1.
+	%\subsection{Duality and the Classical EOQ Problem.}\label{class-EOQ} %% 1.1.
+	%\subsection{Outline.}\label{outline1} %% 1.2.
+	%\subsubsection{Cyclic Schedules for the General Deterministic SMDP.}
+	%  \label{cyclic-schedules} %% 1.2.1
+	%\section{Problem Description.}\label{problemdescription} %% 2.
+	
+	% Text of your paper here
+	\section{Notation}
+
+			\begin{tabular}{l l}
+				
+				\bf {Sets and Indices} & \\
+				$t \in T$ 		 & set of hours\\
+				$w \in \Omega$ 		& set of scenarios \\
+
+				\bf {Data and Parameters} & \\
+				$\eta_c$ 		& battery's charging efficiency, $ 0 < \eta_c < 1 $   \\
+				$\eta_d$ 		& battery's discharging efficiency, $ 0 < \eta_d < 1$   \\
+				$s_t^\omega$ & solar energy available at hour $t$ under scenario $\omega$ [MWh]   \\ 
+				$\underline{X}, \overline{X}$ 		& upper and lower bounds on battery's capacity [MWh]  \\ 
+				$\lambda_t^p$ & purchasing price of energy at hour $t$ [\$/MWh] \\ 
+				$\lambda_t^q$ & selling price of energy at hour $t$ [\$/MWh]\\ 
+				$\overline{Y}$ 		& charging capacity of battery [MWh] \\
+				$\overline{Z}$ 		& discharging capacity of battery  [MWh] \\ \\
+				
+				\bf {Decision Variables} & \\
+				$p_t$ 		     		   & energy promised to purchase at hour $t$ [MWh]  \\
+				$q_t$ 		     		   & energy promised to sell at hour $t$ [MWh]  \\
+				$x_t^\omega$ 		 & energy stored in battery at hour $t$ under scenario $\omega$ [MWh]  \\
+				$y_t^\omega$ 		 & energy charged to battery at hour $t$ under scenario $\omega$ [MWh]  \\
+				$z_t^\omega$ 		 & energy discharged to battery at hour $t$ under scenario $\omega$ [MWh]  \\
+				$\alpha_t^\omega$  & binary variable; 1 if battery is charging at $t$ and 0 elsewise \\	\\
+		\end{tabular}
+		\label{tab:notation}
+	
+	\section{Introduction}
+	
+	We consider a problem where a solar photovoltaic power station (SPP) commits (e.g., on power auctions) to deliver $p_t$ MWh of energy at the hour $t$. Solar production is considered uncertain and represented with the random parameter $\tilde{s}_t$. The solar production is zero during some hours a day.
+	Within the SPP, there is a bulk storage, e.g., pump hydro generator or Li-ion batteries, with a given storage capacity $ \overline{X}$. The bulk storage is used to meet the uncertainty of the solar generation in order to meet the contract commitments. Also, it can be used for selling/purchase energy in the pool-based market at price $\lambda_t^q$/$\lambda_t^p$ ($\lambda_t^p \ge \lambda_t^q$). The purchased/sold energy, $p_t$/$q_t$, from/to the pool-based market has to be decided a day-ahead of the energy delivery. Observe, that energy purchased $p_t$ from the pool-based market would make  possible to meet the contract for days with very little solar generation. 
+	
+	The following optimization model summarizes the above described problem. 
+
+	\begin{subequations} \label{eqn: solar_1}
+	\begin{eqnarray}
+		\max_{x,y,z,p,q} && \sum_{t \in t} { \lambda_t^q q_t- \lambda^p_t p_t }     \label{eqn: solar_obj} \\
+		\mbox{s.t.} &&    \PP \left\{ q_t  \geq s_t^{\omega} + z_t^\omega -  y_t^\omega,  \forall t\in T  \right\} \ge 1-\alpha  \label{eqn. commit} \\
+		 && x_{t+1}^\omega = x_t^\omega +  \eta_c (y_t^\omega + p_t) - \frac{1}{\eta_d} (z_t^\omega + q_t),  \forall t \le |T|-1,  \omega \in \Omega       \label{eqn: solar_2}\\
+		 &&	 \underline{X} \le x_t^\omega \le \overline{X},  \forall t \in T, \omega \in \Omega 	\label{eqn: solar_3}\\
+		 &&   0 \le y_{t}^\omega   \le \overline{Y} (1-\alpha_t^\omega),      \forall t \le |T|-1, \omega \in \Omega  \label{eqn: solar_4} \\
+		 &&	 0 \le z_{t}^\omega   \le \overline{Z} \alpha_t^\omega,     \forall t \le |T|-1, \omega \in \Omega  \label{eqn: solar_5} \\
+		 && \alpha_t^\omega  \in \{0,1\}, \label{eqn: solar_6} \forall t \in T, \omega \in \Omega \\
+		 && p_t, q_t  \ge 0. \label{eqn: solar_7} 
+	\end{eqnarray}
+	\end{subequations}
+
+The objective function in~\eqref{eqn: solar_obj} aims to maximize profit; i.e., revenue from the sale
+minus purchase cost. A more sophisticated model could include piecewise linear or quadratic costs; see, e.g.,~\cite{carrion2006};~\cite{wu2011tighter}. Constraint~\eqref{eqn: solar_1} requires that the
+joint probability of meeting the promised energy to sell, by the available solar power via $s^\omega$, and the battery, via  $z^\omega$ and $y^\omega$,  for the entire horizon meets a threshold; e.g., $1-\varepsilon = 0.95$ or 0.99. Constraint~\eqref{eqn: solar_1} defines the energy stored in the battery at hour $t+1$ by the existing energy, via $x_t$, the charge, via $y_t + p_t$, and the discharge, via $z_t + q_t$ for the entire time horizon. Constraints~\eqref{eqn: solar_3}-\eqref{eqn: solar_6} enforce upper and lower bounds on the battery capacity, via $\underline{X}$ and $\overline{X}$, discharging limits, via $0$ and $\overline{Y}$, and the charging limits, via $0$ and $\overline{Z}$.  The binary nature of $\alpha$ ensures that at any hour the battery cannot be both charging and discharging. We note that for any hour it is possible for the battery to be neither charging nor discharging.  Constraint~\eqref{eqn: solar_7} ensures that the power purchased and sold is non-negative.
+
+
+
+
+
+	%   (while the paper is being written).
+	\bibliographystyle{ormsv080} % outcomment this and next line in Case 1
+	\bibliography{thebib2} % if more than one, comma separated
+	
+	% CASE 2: BiBTeX used to generate mypaper.bbl (to be further fine tuned)
+	%\input{mypaper.bbl} % outcomment this line in Case 2
+	
+	%If you don't use BiBTex, you can manually itemize references as shown below.
+	
+	%%%%%%%%%%%%%%%%%
+	\end{document}
+	%%%%%%%%%%%%%%%%%

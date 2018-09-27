@@ -1,0 +1,41 @@
+
+--- Job true_problem.gms Start 09/27/18 10:50:20 25.0.3 r65947 WEX-WEI x86 64bit/MS Windows
+GAMS 25.0.3   Copyright (C) 1987-2018 GAMS Development. All rights reserved
+Licensee: Small MUD - 5 User License                     S170509:1014AO-WIN
+          Karlsruher Institut fuer Technologie (KIT), Institut fuer DC13284
+          License for teaching and research at degree granting institutions
+          License Admin: Steffen Rebennack, steffen.rebennack@kit.edu      
+--- Starting compilation
+--- true_problem.gms(28) 3 Mb 1 Error
+*** Error 282 in C:\Users\bisma\OneDrive\Documents\Renewable_Energy\Solar\Optimization\true_problem.gms
+    Unable to open include file
+--- true_problem.gms(30) 3 Mb 2 Errors
+*** Error 463 in C:\Users\bisma\OneDrive\Documents\Renewable_Energy\Solar\Optimization\true_problem.gms
+    The column section in the previous table is missing
+--- true_problem.gms(34) 3 Mb 3 Errors
+*** Error 282 in C:\Users\bisma\OneDrive\Documents\Renewable_Energy\Solar\Optimization\true_problem.gms
+    Unable to open include file
+--- true_problem.gms(35) 3 Mb 4 Errors
+*** Error 463 in C:\Users\bisma\OneDrive\Documents\Renewable_Energy\Solar\Optimization\true_problem.gms
+    The column section in the previous table is missing
+--- true_problem.gms(159) 3 Mb 5 Errors
+*** Error 257 in C:\Users\bisma\OneDrive\Documents\Renewable_Energy\Solar\Optimization\true_problem.gms
+    Solve statement not checked because of previous errors
+--- true_problem.gms(160) 3 Mb 6 Errors
+*** Error 141 in C:\Users\bisma\OneDrive\Documents\Renewable_Energy\Solar\Optimization\true_problem.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- true_problem.gms(164) 3 Mb 7 Errors
+*** Error 141 in C:\Users\bisma\OneDrive\Documents\Renewable_Energy\Solar\Optimization\true_problem.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- true_problem.gms(165) 3 Mb 7 Errors
+*** Status: Compilation error(s)
+--- Job true_problem.gms Stop 09/27/18 10:50:20 elapsed 0:00:00.051
+Exit code = 2

@@ -1,0 +1,234 @@
+%%%%%%%%%%%%%%%%%%%%%%% file template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a general template file for the LaTeX package SVJour3
+% for Springer journals.          Springer Heidelberg 2010/09/16
+%
+% Copy it to a new file with a new name and use it as the basis
+% for your article. Delete % signs as needed.
+%
+% This template includes a few options for different layouts and
+% content for various journals. Please consult a previous issue of
+% your journal as needed.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% First comes an example EPS file -- just ignore it and
+% proceed on the \documentclass line
+% your LaTeX will extract the file if required
+\begin{filecontents*}{example.eps}
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 19 19 221 221
+%%CreationDate: Mon Sep 29 1997
+%%Creator: programmed by hand (JK)
+%%EndComments
+gsave
+newpath
+  20 20 moveto
+  20 220 lineto
+  220 220 lineto
+  220 20 lineto
+closepath
+2 setlinewidth
+gsave
+  .4 setgray fill
+grestore
+stroke
+grestore
+\end{filecontents*}
+%
+\RequirePackage{fix-cm}
+%
+%\documentclass{svjour3}                     % onecolumn (standard format)
+%\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
+\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+%\documentclass[twocolumn]{svjour3}          % twocolumn
+%
+\smartqed  % flush right qed marks, e.g. at end of proof
+%
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{fullpage}
+\usepackage{array}
+\allowdisplaybreaks
+\usepackage{arydshln}
+
+
+\newcommand{\st}{\mbox{s.t.}}
+\newcommand{\uS}{{\underline{S}}}
+\newcommand{\oS}{{\overline{S}}}
+\newcommand{\oQ}{{\overline{Q}}}
+\newcommand{\oP}{{\overline{P}}}
+\renewcommand{\P}{{\mathbb P}}
+\newcommand{\E}{{\mathbb E}}
+%
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+%\usepackage{latexsym}
+% etc.
+%
+% please place your own definitions here and don't use \def but
+% \newcommand{}{}
+%
+% Insert the name of "your journal" with
+% \journalname{myjournal}
+%
+\begin{document}
+
+\title{Insert your title here%\thanks{Grants or other notes
+%about the article that should go on the front page should be
+%placed here. General acknowledgments should be placed at the end of the article.}
+}
+\subtitle{Do you have a subtitle?\\ If so, write it here}
+
+%\titlerunning{Short form of title}        % if too long for running head
+
+\author{Bismark Singh        \and
+       David Pozo
+}
+
+%\authorrunning{Short form of author list} % if too long for running head
+
+\institute{F. Author \at
+              first address \\
+              Tel.: +123-45-678910\\
+              Fax: +123-45-678910\\
+              \email{fauthor@example.com}           %  \\
+%             \emph{Present address:} of F. Author  %  if needed
+           \and
+           S. Author \at
+              second address
+}
+
+\date{Received: date / Accepted: date}
+% The correct dates will be entered by the editor
+
+
+\maketitle
+
+\begin{abstract}
+Insert your abstract here. Include keywords, PACS and mathematical
+subject classification numbers as needed.
+\keywords{First keyword \and Second keyword \and More}
+% \PACS{PACS code1 \and PACS code2 \and more}
+% \subclass{MSC code1 \and MSC code2 \and more}
+\end{abstract}
+
+\section{Mathematical Modeling} \label{sec:model}
+
+\subsection{Notation}
+\begin{tabbing}
+\hspace{0.7in} \= \\
+{\em Indices and Sets:} \\
+$t \in T$ \> set of hours\\
+$w \in \Omega$ \> set of scenarios \\ \\
+{\em Parameters: First Stage} \> \\
+$\eta$ \> efficiency of battery $ \eta >1 $   \\
+$\oS$ \>  maximum energy that can be stored in the battery [MWh] \\ 
+$\uS$ \>  minimum energy that must remain in the battery [MWh] \\ 
+
+$\mu$ \> revenue earned for delivering energy at hour $t$ [\$/MWh] \\
+$\lambda_c$ \> operational cost of charging the battery [\$/MWh] \\
+$\lambda_d$ \> operational cost of charging the battery  [\$/MWh] \\ 
+
+$\lambda_t^q$ \> selling price of energy at hour $t$ [\$/MWh]\\ 
+$\oP$ \> maximum charging rate of  battery [MWh] \\
+$\oQ$ \> maximum discharging rate  of battery  [MWh] \\ \\
+{\em Parameters: Second Stage} \> \\
+$s_t^\omega$ \> solar energy available at hour $t$ under scenario $\omega$ [MWh]   \\ \\
+
+{\em Decision Variables: First Stage} \> \\
+$y_t$ \> energy promised to deliver at hour $t$ [MWh]  \\
+
+{\em Decision Variables: Second Stage} \> \\
+
+$p_t^\omega$ \> energy charged to battery at hour $t$ in scenario $\omega$ [MWh]  \\
+$q_t^\omega$ \> energy discharged from battery at hour $t$ in scenario $\omega$ [MWh]  \\
+$w_t^\omega$ \> binary variable; 1 if battery is charging at hour $t$ and 0 if discharging
+\end{tabbing}
+
+		\label{tab:notation}
+	
+	\section{Introduction}
+	
+	We consider a problem where a solar photovoltaic power station (SPP) commits (e.g., on power auctions) to deliver $p_t$ MWh of energy at the hour $t$. Solar production is considered uncertain and represented with the random parameter $\tilde{s}_t$. The solar production is zero during some hours a day.
+	Within the SPP, there is a bulk storage, e.g., pump hydro generator or Li-ion batteries, with a given storage capacity $ \overline{X}$. The bulk storage is used to meet the uncertainty of the solar generation in order to meet the contract commitments. Also, it can be used for selling/purchase energy in the pool-based market at price $\lambda_t^q$/$\lambda_t^p$ ($\lambda_t^p \ge \lambda_t^q$). The purchased/sold energy, $p_t$/$q_t$, from/to the pool-based market has to be decided a day-ahead of the energy delivery. Observe, that energy purchased $p_t$ from the pool-based market would make  possible to meet the contract for days with very little solar generation. 
+	
+	The following optimization model summarizes the above described problem. 
+
+\begin{subequations} \label{eqn: model}
+\begin{align}
+\max \,\, &  \sum_{t \in T} \mu_t y_t- \E [ \lambda_c p_t^\omega + \lambda_d q_t^\omega ] & \label{eqn: obj} \\
+ \st \,\, &   \P \left( y_t \le s_t^\omega + q_t^\omega -  p_t^\omega,  \forall t\in T \right)  \ge \alpha & \label{eqn: chance} \\
+% & x_{t+1}^\omega = x_t^\omega +  z_t^\omega, & \forall t \in T, \forall \omega \in \Omega     \label{eqn: balance}\\
+& x_{t+1}^\omega = x_t^\omega +  \frac{1}{\eta} p_t^\omega - \eta q_t^\omega, & \forall t \in T, \forall \omega \in \Omega     \label{eqn: balance}\\
+% & z_t^\omega = \frac{1}{\eta} p_t^\omega - \eta q_t^\omega, & \forall t \in T, \forall \omega \in \Omega     \label{eqn: charging}\\
+& p_t^\omega \le \oP w_t^\omega, & \forall t \in T, \forall \omega \in \Omega  \label{eqn: maxcharging}\\
+& q_t^\omega \le \oQ (1 - w_t^\omega), & \forall t \in T, \forall \omega \in \Omega  \label{eqn: maxdischarging}\\
+& w_t^\omega \in \{ 0,1 \} & \forall t \in T, \forall \omega \in \Omega \label{eqn: binary} \\
+& p_t^\omega, q_t^\omega  \ge 0. \label{eqn: positive} 
+\end{align}
+\end{subequations}
+
+The objective function in~\eqref{eqn: obj} aims to maximize profit; i.e., revenue from the promise minus the cost of operating (charging or discharging) the battery. A more sophisticated model could include piecewise linear or quadratic costs; see, e.g.,~\cite{carrion2006,wu2011tighter}. The joint chance constraint in equation~\eqref{eqn: chance} requires that the
+joint probability of meeting the promised energy to sell, by the available solar power (via $s^\omega$) and discharging the battery, (via $q^\omega$),  for the entire time horizon meets a threshold; excess solar energy can be used to charge the battery (via $p^\omega$). If the solar power is excess than needed, we might need to curtail it. However, we do not penalize this curtailment and hence equation~\eqref{eqn: chance} is expressed as a inequality.  Here, $\alpha$ is a positive quantity just less than one such as 0.95. Constraint~\eqref{eqn: balance} relates the energy stored by the battery in a subsequent hour with the previous hour; here, the quantity $\frac{1}{\eta} p_t^\omega - \eta q_t^\omega$ is the energy charged or discharged by the battery at hour $t$. Note that both $p_t^\omega$ or $q_t^\omega$ cannot simultaneously be positive, this is ensured by constraints~\eqref{eqn: maxcharging}-\eqref{eqn: maxdischarging}. Further, since $\eta >1$, a fraction of energy is lost while both charging and discharging; i.e., we consume more than 100\% while charging and supply less than a 100\% while discharging. Further, constraints~\eqref{eqn: maxcharging}-\eqref{eqn: maxdischarging} also provide limits to both charging and discharging capacities. to charge  less than  defines the energy stored in the battery at hour $t+1$ by the existing energy, via $x_t$, the charge, via $y_t + p_t$, and the discharge, via $z_t + q_t$ for the entire time horizon. Constraints~\eqref{eqn: solar_3}-\eqref{eqn: solar_6} enforce upper and lower bounds on the battery capacity, via $\underline{X}$ and $\overline{X}$, discharging limits, via $0$ and $\overline{Y}$, and the charging limits, via $0$ and $\overline{Z}$.  The binary nature of $\alpha$ ensures that at any hour the battery cannot be both charging and discharging. We note that for any hour it is possible for the battery to be neither charging nor discharging.  Constraint~\eqref{eqn: solar_7} ensures that the power purchased and sold is non-negative.
+
+
+
+% For one-column wide figures use
+\begin{figure}
+% Use the relevant command to insert your figure file.
+% For example, with the graphicx package use
+  \includegraphics{example.eps}
+% figure caption is below the figure
+\caption{Please write your figure caption here}
+\label{fig:1}       % Give a unique label
+\end{figure}
+%
+% For two-column wide figures use
+\begin{figure*}
+% Use the relevant command to insert your figure file.
+% For example, with the graphicx package use
+  \includegraphics[width=0.75\textwidth]{example.eps}
+% figure caption is below the figure
+\caption{Please write your figure caption here}
+\label{fig:2}       % Give a unique label
+\end{figure*}
+%
+% For tables use
+\begin{table}
+% table caption is above the table
+\caption{Please write your table caption here}
+\label{tab:1}       % Give a unique label
+% For LaTeX tables use
+\begin{tabular}{lll}
+\hline\noalign{\smallskip}
+first & second & third  \\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+number & number & number \\
+number & number & number \\
+\noalign{\smallskip}\hline
+\end{tabular}
+\end{table}
+
+
+%\begin{acknowledgements}
+%If you'd like to thank anyone, place your comments here
+%and remove the percent signs.
+%\end{acknowledgements}
+
+% BibTeX users please use one of
+\bibliographystyle{spbasic}      % basic style, author-year citations
+%\bibliographystyle{spmpsci}      % mathematics and physical sciences
+%\bibliographystyle{spphys}       % APS-like style for physics
+\bibliography{thebib2}   % name your BibTeX data base
+
+
+
+\end{document}
+% end of file template.tex
+
